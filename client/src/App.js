@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import SavedList from "./Movies/SavedList";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useRouteMatch } from "react-router-dom";
 import Movie from "./Movies/Movie";
 import MovieList from "./Movies/MovieList";
-import MovieCard from "./Movies/MovieCard";
 
 export default function App() {
   const [saved, setSaved] = useState([]); // Stretch: the ids of "saved" movies
@@ -26,21 +25,15 @@ export default function App() {
   }, []);
 
   const addToSavedList = (id) => {
-    // This is stretch. Prevent the same movie from being "saved" more than once
+    setSaved((saved) => [...saved, id]);
   };
 
   return (
     <div>
-      <SavedList
-        list={
-          [
-            /* This is stretch */
-          ]
-        }
-      />
+      <SavedList list={saved} />
       <Switch>
         <Route path="/movies/:id">
-          <Movie />
+          <Movie save={addToSavedList} />
         </Route>
         <Route path="/">
           <MovieList movies={movieList} />

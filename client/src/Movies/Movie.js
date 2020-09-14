@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+// import MovieCard from "./MovieCard";
 
 export default function Movie(props) {
   const [movie, setMovie] = useState();
@@ -18,7 +19,9 @@ export default function Movie(props) {
       });
   }, [id]);
 
-  // const saveMovie = evt => { }
+  const saveMovie = (e) => {
+    props.save(e.target.id);
+  };
 
   if (!movie) {
     return <div>Loading movie information...</div>;
@@ -44,7 +47,9 @@ export default function Movie(props) {
           </div>
         ))}
       </div>
-      <div className="save-button">Save</div>
+      <div className="save-button" onClick={saveMovie}>
+        Save
+      </div>
     </div>
   );
 }
