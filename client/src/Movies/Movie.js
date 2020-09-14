@@ -20,7 +20,7 @@ export default function Movie(props) {
   }, [id]);
 
   const saveMovie = (e) => {
-    props.save(e.target.id);
+    props.save(movie);
   };
 
   if (!movie) {
