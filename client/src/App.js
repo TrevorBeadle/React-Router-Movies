@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import SavedList from "./Movies/SavedList";
-import { Route, Switch, useRouteMatch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Movie from "./Movies/Movie";
 import MovieList from "./Movies/MovieList";
 
@@ -25,7 +25,13 @@ export default function App() {
   }, []);
 
   const addToSavedList = (id) => {
-    setSaved((saved) => [...saved, id]);
+    setSaved((saved) => {
+      if (saved.includes(id)) {
+        return [...saved];
+      } else {
+        return [...saved, id];
+      }
+    });
   };
 
   return (
