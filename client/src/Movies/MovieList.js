@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-// import MovieCard from "./MovieCard";
+import MovieCard from "./MovieCard";
 
 export default function MovieList(props) {
   return (
