@@ -27,16 +27,9 @@ export default function Movie(props) {
     return <div>Loading movie information...</div>;
   }
 
-  const { title, director, metascore, stars } = movie;
-
   return (
     <div className="save-wrapper">
-      <MovieCard
-        title={title}
-        director={director}
-        metascore={metascore}
-        stars={stars}
-      />
+      <MovieCard {...movie} />
       <div className="save-button" onClick={saveMovie} key={movie}>
         Save
       </div>
