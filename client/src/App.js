@@ -26,8 +26,8 @@ export default function App() {
 
   const addToSavedList = (id) => {
     setSaved((saved) => {
-      if (saved.includes(id)) {
-        return [...saved];
+      if (saved.find((element) => element.id === id.id)) {
+        return saved;
       } else {
         return [...saved, id];
       }
