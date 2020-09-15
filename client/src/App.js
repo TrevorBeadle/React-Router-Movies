@@ -34,9 +34,13 @@ export default function App() {
     });
   };
 
+  const clearSavedList = () => {
+    setSaved([]);
+  };
+
   return (
     <div>
-      <SavedList list={saved} />
+      <SavedList list={saved} clear={clearSavedList} />
       <Switch>
         <Route path="/movies/:id">
           <Movie save={addToSavedList} />
