@@ -19,7 +19,7 @@ export default function Movie(props) {
       });
   }, [id]);
 
-  const saveMovie = (e) => {
+  const saveMovie = () => {
     props.save(movie);
   };
 
