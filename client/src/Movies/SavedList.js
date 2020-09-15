@@ -4,13 +4,7 @@ import { useHistory, NavLink } from "react-router-dom";
 export default function SavedList(props) {
   const history = useHistory();
 
-  const routeToHome = () => {
-    history.push("/");
-  };
-
-  const clearSaved = () => {
-    props.clear();
-  };
+  const routeToHome = () => history.push("/");
 
   return (
     <div className="saved-list">
@@ -25,7 +19,7 @@ export default function SavedList(props) {
         </NavLink>
       ))}
       <div className="buttons">
-        <div className="clear-button" onClick={clearSaved}>
+        <div className="clear-button" onClick={props.clear}>
           Clear
         </div>
         <div className="home-button" onClick={routeToHome}>

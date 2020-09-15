@@ -19,10 +19,6 @@ export default function Movie(props) {
       });
   }, [id]);
 
-  const saveMovie = () => {
-    props.save(movie);
-  };
-
   if (!movie) {
     return <div>Loading movie information...</div>;
   }
@@ -30,7 +26,11 @@ export default function Movie(props) {
   return (
     <div className="save-wrapper">
       <MovieCard {...movie} />
-      <div className="save-button" onClick={saveMovie} key={movie}>
+      <div
+        className="save-button"
+        onClick={() => props.save(movie)}
+        key={movie}
+      >
         Save
       </div>
     </div>

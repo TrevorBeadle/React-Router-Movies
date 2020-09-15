@@ -14,7 +14,6 @@ export default function MovieList(props) {
 
 function MovieDetails(props) {
   const history = useHistory();
-
   const routeDescription = () => {
     history.push(`/movies/${props.movie.id}`);
   };
